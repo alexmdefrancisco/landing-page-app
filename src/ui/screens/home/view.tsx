@@ -36,11 +36,13 @@ export default function Home() {
                 </View>
             </View>
             <View style={{ height: '5%' }}/>
-            <ScrollView>
+            <ScrollView style={{ width: '100%' }}>
                 <DealFinder/>
                 <Text style={{ textAlign: 'left', fontWeight: 'bold', fontSize: 24, width: '100%', paddingHorizontal: 16, marginTop: 32, marginBottom: 16 }}>{'Recent Naked Deals'}</Text>
-                <DealCard/>
-                <View style={{ height: 160 }}/>
+                <View style={{ width: '100%', alignItems: 'center'}}>
+                    <DealCard/>
+                    <View style={{ height: 160 }}/>
+                </View>
             </ScrollView>
         </View>
     )
