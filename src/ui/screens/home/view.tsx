@@ -39,7 +39,7 @@ export default function Home() {
             <ScrollView style={{ width: '100%' }}>
                 <DealFinder/>
                 <Text style={{ textAlign: 'left', fontWeight: 'bold', fontSize: 24, width: '100%', paddingHorizontal: 16, marginTop: 32, marginBottom: 16 }}>{'Recent Naked Deals'}</Text>
-                <View style={{ width: '100%', alignItems: 'center'}}>
+                <View style={{ width: '100%', alignItems: 'center' }}>
                     <DealCard/>
                     <View style={{ height: 160 }}/>
                 </View>
