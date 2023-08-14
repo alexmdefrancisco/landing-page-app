@@ -24,8 +24,8 @@ export default function DealFinder() {
         <View style={styles.container}>
             <Text style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 36 }}>{'Find Naked Prices'}</Text>
             <View style={{ backgroundColor: '#ffffff', width: '100%', height: 48, borderRadius: 8, alignItems: 'center', justifyContent: 'flex-start', paddingHorizontal: 16, flexDirection: 'row', marginTop: 16 }}>
-                <Feather name="search" size={16} color='#43b3fd'/>
-                <TextInput style={{ height: 24, marginLeft: 16 }} placeholder={'Search Hotel'}/>
+                <Feather name="search" size={18} color='#43b3fd'/>
+                <TextInput style={{ height: 24, marginLeft: 16, fontSize: 16 }} placeholder={'Search Hotel'}/>
             </View>
             <View style={{ backgroundColor: '#ffffff', width: '100%', flexDirection: 'row', flexWrap: 'wrap', borderRadius: 8, marginTop: 16 }}>
                 {DATA.map(item => (
