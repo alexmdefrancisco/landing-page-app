@@ -14,13 +14,13 @@ import DealFinder from '../../components/dealFinder'
 
 export default function Home() {
     return (
-        <View style={{ flex: 1, alignItems: 'center' }}>
+        <View style={styles.container}>
             <View style={styles.header}>
                 <Image 
                     source={require('../../assets/background/logo.png')}
-                    style={{ height: 24, width: 94 }}
+                    style={styles.logo}
                 />
-                <View style={{ flexDirection: 'row', width: 60, justifyContent: 'space-between' }}>
+                <View style={styles.headerIcons}>
                     <TouchableOpacity style={{ height: 28, width: 28 }}>
                         <Feather name='bell' size={24} color='#000000' style={{ position: 'absolute', right: 0 }}/>
                         <View style={{ backgroundColor: '#ff6969', borderRadius: 8, height: 16, width: 16, position: 'absolute', bottom: 0, alignItems: 'center', justifyContent: 'center' }}>
@@ -35,13 +35,13 @@ export default function Home() {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={{ height: '5%' }}/>
-            <ScrollView style={{ width: '100%' }} contentContainerStyle={{ alignItems: 'center' }}>
+            <View style={styles.spacing}/>
+            <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.scrollContentContainer}>
                 <DealFinder/>
-                <View style={{ backgroundColor: '#ffffff', width: '100%', alignItems: 'center', marginTop: 16 }}>
-                    <Text style={{ textAlign: 'left', fontWeight: 'bold', fontSize: 24, width: '100%', paddingHorizontal: 16, marginTop: 16, marginBottom: 16 }}>{'Recent Naked Deals'}</Text>
+                <View style={styles.dealSection}>
+                    <Text style={styles.dealSectionText}>{'Recent Naked Deals'}</Text>
                     <DealCard/>
-                    <View style={{ height: 160 }}/>
+                    <View style={styles.bottomSpacing}/>
                 </View>
             </ScrollView>
         </View>
@@ -49,6 +49,28 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+    bottomSpacing: {
+        height: 160
+    },
+    container: {
+        alignItems: 'center',
+        flex: 1
+    },
+    dealSection: {
+        backgroundColor: '#ffffff',
+        width: '100%',
+        alignItems: 'center',
+        marginTop: 16
+    },
+    dealSectionText: {
+        textAlign: 'left',
+        fontWeight: 'bold',
+        fontSize: 24,
+        width: '100%',
+        paddingHorizontal: 16,
+        marginTop: 16,
+        marginBottom: 16
+    },
     header: {
         alignItems: 'center',
         flexDirection: 'row',
@@ -56,5 +78,23 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: '3%',
         width: '100%'
-    }
+    },
+    headerIcons: {
+        flexDirection: 'row',
+        width: 60,
+        justifyContent: 'space-between'
+    },
+    logo: {
+        height: 24,
+        width: 94
+    },
+    scrollContainer: {
+        width: '100%'
+    },
+    scrollContentContainer: {
+        alignItems: 'center'
+    },
+    spacing: {
+        height: '5%'
+    },
 })
