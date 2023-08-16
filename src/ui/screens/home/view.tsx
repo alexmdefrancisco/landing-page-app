@@ -3,6 +3,7 @@ import React from 'react'
 
 // React Native imports
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 // Expo import
 import { Image } from 'expo-image'
@@ -12,7 +13,19 @@ import DealCard from '../../components/dealCard'
 import DealFinder from '../../components/dealFinder'
 import NotificationButton from '../../components/notificationButton'
 
-export default function HomeScreen() {
+// Types imports
+import { RootStackParamList } from '../../navigation/RootNavigator'
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
+
+interface HomeScreenProps {
+  navigation: HomeScreenNavigationProp
+}
+
+export default function HomeScreen({ navigation }: HomeScreenProps) {
+
+    const navigateTo = (route: keyof RootStackParamList) => navigation.navigate(route)
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -21,8 +34,8 @@ export default function HomeScreen() {
                     style={styles.logo}
                 />
                 <View style={styles.headerIcons}>
-                    <NotificationButton count={10} iconName={'bell'}/>
-                    <NotificationButton count={5} imageSource={require('../../assets/images/profile-icon.png')}/>
+                    <NotificationButton count={10} iconName={'bell'} onPress={() => navigateTo('Modal')}/>
+                    <NotificationButton count={5} imageSource={require('../../assets/images/profile-icon.png')} onPress={() => navigateTo('Modal')}/>
                 </View>
             </View>
             <View style={styles.spacing}/>
@@ -30,7 +43,7 @@ export default function HomeScreen() {
                 <DealFinder/>
                 <View style={styles.dealSection}>
                     <Text style={styles.dealSectionText}>{'Recent Naked Deals'}</Text>
-                    <DealCard/>
+                    <DealCard onPress={() => navigateTo('Modal')}/>
                     <View style={styles.bottomSpacing}/>
                 </View>
             </ScrollView>

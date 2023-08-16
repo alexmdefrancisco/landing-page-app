@@ -2,13 +2,13 @@
 import React from 'react'
 
 // React Native imports
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 // Types imports
 import { RootStackParamList } from '../../navigation/RootNavigator'
 
-type ModalScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'CustomModal'>
+type ModalScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Modal'>
 
 interface ModalScreenProps {
   navigation: ModalScreenNavigationProp
@@ -19,20 +19,30 @@ export default function ModalScreen({ navigation }: ModalScreenProps) {
     const handleGoBack = () => navigation.goBack()
 
     return (
-        <View style={styles.container}>
-            <View style={styles.modalContainer}>
-                <View style={styles.modalContent}>
-                    <Text>{'This is a modal!'}</Text>
-                    <Button title='Dismiss' onPress={handleGoBack}/>
-                </View>
+        <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+                <Text style={styles.text}>{'When pressed, a modal with information should appear. As per this example.'}</Text>
+                <TouchableOpacity style={styles.buttonContainer} onPress={handleGoBack}>
+                    <Text style={styles.buttonText}>{'Dismiss'}</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
+    buttonContainer: {
+        alignItems: 'center',
+        backgroundColor: '#43b3fd',
+        borderRadius: 16,
+        marginTop: 8,
+        paddingHorizontal: 20,
+        paddingVertical: 2
+    },
+    buttonText: {
+        color: '#ffffff',
+        fontSize: 16,
+        fontWeight: 'bold'
     },
     modalContainer: {
         alignItems: 'center',
@@ -41,6 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     modalContent: {
+        alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: 10,
         elevation: 5,
@@ -51,5 +62,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         width: '55%'
+    },
+    text: {
+        fontSize: 14,
+        fontWeight: '400',
+        textAlign: 'justify'
     }
 })

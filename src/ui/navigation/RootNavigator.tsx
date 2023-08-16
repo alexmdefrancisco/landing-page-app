@@ -15,7 +15,7 @@ import ModalScreen from '../screens/modal'
 
 export type RootStackParamList = {
     Home: undefined
-    CustomModal: undefined
+    Modal: undefined
 }
 
 const Stack = createNativeStackNavigator()
@@ -33,7 +33,7 @@ export default function RootNavigator() {
                     <Stack.Screen component={HomeScreen} name='Home'/>
                 </Stack.Group>
                 <Stack.Group screenOptions={{ contentStyle: { backgroundColor: '#00000050' }, presentation: 'transparentModal' }}>
-                    <Stack.Screen component={ModalScreen} name='CustomModal'/>
+                    <Stack.Screen component={ModalScreen} name='Modal'/>
                 </Stack.Group>
             </Stack.Navigator>
             <StatusBar style={'auto'}/>

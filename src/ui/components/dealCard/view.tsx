@@ -11,7 +11,11 @@ import { MaterialIcons } from '@expo/vector-icons'
 // Components imports
 import DealCardButton from '../dealCardButton'
 
-export default function DealCard() {
+interface DealCardProps {
+    onPress?: () => void
+}
+
+export default function DealCard({ onPress }: DealCardProps) {
     return (
         <View>
             <View style={[styles.container, styles.cardContainer]}/>
@@ -42,7 +46,7 @@ export default function DealCard() {
                     <Text style={styles.feesText}>{'(taxes & fees incl.)'}</Text>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <DealCardButton/>
+                    <DealCardButton onPress={onPress}/>
                 </View>
             </View>
         </View>
