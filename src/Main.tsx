@@ -18,16 +18,16 @@ export default function Main() {
     const safeStyle = { paddingBottom: insets.bottom, paddingLeft: insets.left, paddingRight: insets.right, paddingTop: insets.top }
 
     return (
-          <View style={[styles.container, safeStyle]}>
+        <View style={[styles.container, safeStyle]}>
             <Home/>
             <StatusBar style='auto'/>
-          </View>
-      )
-    }
-    
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fcf8fc'
+        backgroundColor: '#fcf8fc',
+        flex: 1
     }
 })
