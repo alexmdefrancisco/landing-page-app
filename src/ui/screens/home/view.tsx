@@ -2,15 +2,15 @@
 import React from 'react'
 
 // React Native imports
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
 // Expo import
 import { Image } from 'expo-image'
-import { Feather } from '@expo/vector-icons'
 
 // Components imports
 import DealCard from '../../components/dealCard'
 import DealFinder from '../../components/dealFinder'
+import NotificationButton from '../../components/notificationButton'
 
 export default function Home() {
     return (
@@ -21,18 +21,8 @@ export default function Home() {
                     style={styles.logo}
                 />
                 <View style={styles.headerIcons}>
-                    <TouchableOpacity style={{ height: 28, width: 28 }}>
-                        <Feather name='bell' size={24} color='#000000' style={{ position: 'absolute', right: 0 }}/>
-                        <View style={{ backgroundColor: '#ff6969', borderRadius: 8, height: 16, width: 16, position: 'absolute', bottom: 0, alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={{ color: '#ffffff', fontSize: 12, fontWeight: '600' }}>{'10'}</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ height: 28, width: 28 }}>
-                        <Image contentFit={'cover'} source={require('../../assets/images/profile-icon.png')} style={{ position: 'absolute', right: 0, width: 22, height: 22 }}/>
-                        <View style={{ backgroundColor: '#ff6969', borderRadius: 8, height: 16, width: 16, position: 'absolute', bottom: 0, alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={{ color: '#ffffff', fontSize: 12, fontWeight: '600' }}>{'5'}</Text>
-                        </View>
-                    </TouchableOpacity>
+                    <NotificationButton count={10} iconName={'bell'}/>
+                    <NotificationButton count={5} imageSource={require('../../assets/images/profile-icon.png')}/>
                 </View>
             </View>
             <View style={styles.spacing}/>
