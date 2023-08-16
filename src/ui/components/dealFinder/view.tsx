@@ -2,55 +2,23 @@
 import React from 'react'
 
 // React Native imports
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 // Expo imports
-import { Image } from 'expo-image'
 import { Feather } from '@expo/vector-icons'
-import * as WebBrowser from 'expo-web-browser'
 
-interface DataItem {
-    name: string
-    source: any
-    url: string
-}
+// View Model imports
+import useViewModel from './viewModel'
 
-const DATA: DataItem[] = [
-    { name: 'Booking', source: require('../../assets/images/booking.png'), url: 'https://www.booking.com/' },
-    { name: 'Expedia', source: require('../../assets/images/expedia.png'), url: 'https://www.expedia.com/' },
-    { name: 'Hotels', source: require('../../assets/images/hotels.png'), url: 'https://www.hotels.com/' },
-    { name: 'Priceline', source: require('../../assets/images/priceline.png'), url: 'https://www.priceline.com/' },
-    { name: 'Agoda', source: require('../../assets/images/agoda.png'), url: 'https://www.agoda.com/' },
-    { name: 'Airbnb', source: require('../../assets/images/airbnb.png'), url: 'https://www.airbnb.com/' },
-    { name: 'Marriott', source: require('../../assets/images/marriott.png'), url: 'https://www.marriott.com/' },
-    { name: 'More', source: require('../../assets/images/threeDots.png'), url: 'https://www.google.com/' }
-]
-
-function DealFinderItem({ item, onPress }: { item: DataItem, onPress: () => void }) {
-
-    const isMore = item.name === 'More'
-
-    return (
-        <TouchableOpacity
-            key={item.name}
-            style={styles.itemContainer}
-            onPress={onPress}
-        >
-            <View style={isMore ? [styles.imageContainer, { backgroundColor: '#f2f2f2', borderRadius: 8 }] : styles.imageContainer}>
-                <Image
-                    contentFit={isMore ? 'contain' : 'cover'}
-                    source={item.source}
-                    style={isMore ? { height: 6, width: 24 } : styles.image}
-                />
-            </View>
-            <Text>{item.name}</Text>
-        </TouchableOpacity>
-    )
-}
+// Components imports
+import DealFinderItem from '../dealFinderItem'
 
 export default function DealFinder() {
 
-    async function handlePress(url: string) { return await WebBrowser.openBrowserAsync(url) }
+    const viewModel = useViewModel()
+
+    const DATA = viewModel.DATA
+    const handlePress = viewModel.handlePress
 
     return (
         <View style={styles.container}>
@@ -60,7 +28,7 @@ export default function DealFinder() {
                 <TextInput placeholder={'Search Hotel'} style={styles.textInput}/>
             </View>
             <View style={styles.dataContainer}>
-                {DATA.map(item => <DealFinderItem item={item} key={item.name} onPress={async() => handlePress(item.url)}/> )}
+                {DATA.map(item => <DealFinderItem item={item} key={item.name} onPress={async() => handlePress(item.url)}/>)}
             </View>
         </View>
     )
@@ -78,25 +46,6 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop: 16,
         width: '100%'
-    },
-    image: {
-        height: 40,
-        width: 40
-    },
-    imageContainer: {
-        alignItems: 'center',
-        height: 64,
-        justifyContent: 'center',
-        marginBottom: 8,
-        width: 64
-    },
-    itemContainer: {
-        alignItems: 'center',
-        height: 92,
-        marginBottom: 8,
-        marginHorizontal: '2.5%',
-        marginTop: 8,
-        width: '20%'
     },
     searchBar: {
         alignItems: 'center',
