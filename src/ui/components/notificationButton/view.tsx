@@ -2,7 +2,7 @@
 import React from 'react'
 
 // React Native imports
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 // Expo imports
 import { Image } from 'expo-image'
@@ -18,8 +18,8 @@ interface NotificationButtonProps {
 export default function NotificationButton({ count, iconName, imageSource, onPress }: NotificationButtonProps) {
     return (
         <TouchableOpacity style={styles.button} onPress={onPress}>
-            {iconName ? 
-                <Feather name={iconName} size={24} color='#000000' style={styles.iconStyle}/> :
+            {iconName ?
+                <Feather color='#000000' name={iconName} size={24} style={styles.iconStyle}/> :
                 <Image contentFit={'cover'} source={imageSource} style={styles.imageStyle}/>
             }
             <View style={styles.count}>
@@ -35,24 +35,24 @@ const styles = StyleSheet.create({
         width: 28
     },
     count: {
-        backgroundColor: '#ff6969', 
-        borderRadius: 8, 
-        height: 16, 
-        width: 16, 
-        position: 'absolute', 
-        bottom: 0, 
-        alignItems: 'center', 
-        justifyContent: 'center'
+        alignItems: 'center',
+        backgroundColor: '#ff6969',
+        borderRadius: 8,
+        bottom: 0,
+        height: 16,
+        justifyContent: 'center',
+        position: 'absolute',
+        width: 16
     },
     iconStyle: {
         position: 'absolute',
         right: 0
     },
     imageStyle: {
-        position: 'absolute', 
-        right: 0, 
-        width: 22, 
-        height: 22 
+        height: 22,
+        position: 'absolute',
+        right: 0,
+        width: 22
     },
     text: {
         color: '#ffffff',

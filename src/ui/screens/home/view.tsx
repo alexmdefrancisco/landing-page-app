@@ -2,7 +2,7 @@
 import React from 'react'
 
 // React Native imports
-import { Text, View, StyleSheet, ScrollView } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
 // Expo import
 import { Image } from 'expo-image'
@@ -16,7 +16,7 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image 
+                <Image
                     source={require('../../assets/background/logo.png')}
                     style={styles.logo}
                 />
@@ -26,7 +26,7 @@ export default function Home() {
                 </View>
             </View>
             <View style={styles.spacing}/>
-            <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.scrollContentContainer}>
+            <ScrollView contentContainerStyle={styles.scrollContentContainer} style={styles.scrollContainer}>
                 <DealFinder/>
                 <View style={styles.dealSection}>
                     <Text style={styles.dealSectionText}>{'Recent Naked Deals'}</Text>
@@ -47,19 +47,19 @@ const styles = StyleSheet.create({
         flex: 1
     },
     dealSection: {
-        backgroundColor: '#ffffff',
-        width: '100%',
         alignItems: 'center',
-        marginTop: 16
+        backgroundColor: '#ffffff',
+        marginTop: 16,
+        width: '100%'
     },
     dealSectionText: {
-        textAlign: 'left',
-        fontWeight: 'bold',
         fontSize: 24,
-        width: '100%',
-        paddingHorizontal: 16,
+        fontWeight: 'bold',
+        marginBottom: 16,
         marginTop: 16,
-        marginBottom: 16
+        paddingHorizontal: 16,
+        textAlign: 'left',
+        width: '100%'
     },
     header: {
         alignItems: 'center',
@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     },
     headerIcons: {
         flexDirection: 'row',
-        width: 60,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        width: 60
     },
     logo: {
         height: 24,
@@ -86,5 +86,5 @@ const styles = StyleSheet.create({
     },
     spacing: {
         height: '5%'
-    },
+    }
 })
