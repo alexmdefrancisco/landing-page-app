@@ -1,13 +1,11 @@
-// React Native imports
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+// React imports
+import React from 'react'
 
 // Components imports
 import Main from './src/Main'
 
 export default function App() {
-  return (
-    <SafeAreaProvider>
-      <Main/>
-    </SafeAreaProvider>
-  )
+    return (
+        <Main/>
+    )
 }
