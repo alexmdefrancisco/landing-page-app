@@ -13,6 +13,11 @@ import { StatusBar } from 'expo-status-bar'
 import HomeScreen from '../screens/home'
 import ModalScreen from '../screens/modal'
 
+export type RootStackParamList = {
+    Home: undefined
+    CustomModal: undefined
+}
+
 const Stack = createNativeStackNavigator()
 
 export default function RootNavigator() {
@@ -31,7 +36,7 @@ export default function RootNavigator() {
                     <Stack.Screen component={ModalScreen} name='CustomModal'/>
                 </Stack.Group>
             </Stack.Navigator>
-            <StatusBar style='auto'/>
+            <StatusBar style={'auto'}/>
         </View>
     )
 }

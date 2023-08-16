@@ -12,7 +12,7 @@ import DealCard from '../../components/dealCard'
 import DealFinder from '../../components/dealFinder'
 import NotificationButton from '../../components/notificationButton'
 
-export default function Home() {
+export default function HomeScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     },
     container: {
         alignItems: 'center',
+        backgroundColor: '#fcf8fc',
         flex: 1
     },
     dealSection: {

@@ -1,3 +1,3 @@
-import Home from './view'
+import HomeScreen from './view'
 
-export default Home
+export default HomeScreen
